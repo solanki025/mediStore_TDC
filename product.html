@@ -1,0 +1,245 @@
+<link
+  href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+  rel="stylesheet"
+  id="bootstrap-css"
+/>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Detail</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="stylesheet" href="product.css" />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,700"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <div id="header">
+        <div class="header-logo">
+          <!-- <a href="indext.html"><img src="images/logo.png" alt="" /></a> -->
+          <strong
+            ><a class="logo" href="index.html" style="text-decoration: none"
+              >Medi<span style="color: black">Store</span></a
+            ></strong
+          >
+        </div>
+        <div class="header-list">
+          <nav class="header-list-nav">
+            <ul>
+              <li><a class="active" href="index.html">Home</a></li>
+              <li><a href="shop.html">Shop</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </nav>
+          <div class="header-list-icon">
+            <a href=""><i class="fa fa-bag-shopping"></i></a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Section -->
+    <!-- <main>
+      <section class="product-details">
+        <img id="product-image" src="" alt="Product Image" />
+      </section>
+    </main>
+
+<!--  -->
+
+    <main>
+      <div class="container">
+        <div class="card">
+          <div class="container-fluid">
+            <div class="wrapper row">
+              <div class="preview col-md-6">
+                <div class="preview-pic tab-content">
+                  <div class="tab-pane active" id="pic-1">
+                    <img id="product-image" src="" alt="Product Image" />
+                  </div>
+                </div>
+              </div>
+              <div class="details col-md-6" style="margin: auto">
+                <h3 class="product-title" id="product-title"></h3>
+                <div class="rating">
+                  <div class="stars">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                  </div>
+                  <span class="review-no">41 reviews</span>
+                </div>
+                <h4 class="price">
+                  Current Price: <span id="product-price"></span>
+                </h4>
+                <div
+                  class="description"
+                  id="product-description"
+                  style="font-size: 16px"
+                ></div>
+                <div class="options">
+                  <!-- Options selection here (if applicable) -->
+                </div>
+                <div class="quantity">
+                  Quantity:
+                  <button id="decrease-quantity">-</button>
+                  <span id="quantity">1</span>
+                  <button id="increase-quantity">+</button>
+                </div>
+                <div class="action">
+                  <button class="add-to-cart btn btn-default" type="button">
+                    add to cart
+                  </button>
+                  <!-- <button class="like btn btn-default" type="button">
+                    <span class="fa fa-heart"></span>
+                  </button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      window.onload = function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get("productId");
+
+        const products = [
+          {
+            id: 1,
+            image:
+              "https://www.netmeds.com/images/product-v1/600x600/812850/muscleblaze_weight_gainer_chocolate_1_kg_0.jpg",
+            title: "MuscleBlaze Weight Gainer - Chocolate 1 kg",
+            description:
+              "MuscleBlaze Weight Gainer Chocolate is a high-calorie supplement for muscle building. It provides essential nutrients and supports mass gain. Delicious chocolate flavor.",
+            price: "₹934",
+          },
+          {
+            id: 2,
+            image:
+              "https://www.netmeds.com/images/product-v1/600x600/923056/pro360_weight_gainer_adult_nutritional_powder_chocolate_flavour_500_gm_0_2.jpg",
+            title:
+              "Pro360 Weight Gainer Adult Nutritional Powder - Chocolate Flavour 500 gm",
+            description:
+              "Pro360 Weight Gainer Adult Nutritional Powder in Chocolate Flavour is designed to help gain healthy weight. It provides essential proteins and nutrients for muscle growth.",
+            price: "₹715",
+          },
+          {
+            id: 3,
+            image:
+              "https://www.netmeds.com/images/product-v1/600x600/1122003/muscleblaze_weight_gainer_powder_chocolate_pouch_1_kg_690898_0_0.jpg",
+            title: "MuscleBlaze Weight Gainer Powder - Chocolate (Pouch) 1 kg",
+            description:
+              "MuscleBlaze Weight Gainer Powder in Chocolate is formulated to support muscle growth and repair. It contains high-quality proteins and carbohydrates for effective results.",
+            price: "₹1101",
+          },
+          {
+            id: 4,
+            image:
+              "https://www.netmeds.com/images/product-v1/600x600/1041676/pro360_weight_gainer_protein_powder_banana_250_gm_403598_0_0.jpg",
+            title: "Pro360 Weight Gainer Protein Powder - Banana 250 gm",
+            description:
+              "Pro360 Weight Gainer Protein Powder in Banana Flavor is a rich source of protein and essential nutrients. It aids in muscle recovery and growth.",
+            price: "₹427",
+          },
+          {
+            id: 5,
+            image:
+              "https://www.netmeds.com/images/product-v1/600x600/1041675/pro360_weight_gainer_protein_powder_mango_250_gm_403595_0_0.jpg",
+            title: "Pro360 Weight Gainer Protein Powder - Mango 250 gm",
+            description:
+              "Pro360 Weight Gainer Protein Powder in Mango Flavor is packed with protein and vitamins. It supports muscle building and overall health.",
+            price: "₹430",
+          },
+          {
+            id: 6,
+            image:
+              "https://www.netmeds.com/images/product-v1/600x600/889022/pro360_adult_weight_gainer_nutritional_powder_chocolate_flavour_250_gm_0_2.jpg",
+            title:
+              "Pro360 Adult Weight Gainer Nutritional Powder - Chocolate Flavour 250 gm",
+            description:
+              "Pro360 Adult Weight Gainer Nutritional Powder in Chocolate Flavour is enriched with nutrients. It promotes weight gain and muscle development effectively.",
+            price: "₹550",
+          },
+          {
+            id: 7,
+            image:
+              "https://www.netmeds.com/images/product-v1/600x600/1024477/dr_morepen_weight_gainer_irish_chocolate_500_gm_0_0.jpg",
+            title: "Dr. Morepen Weight Gainer - Irish Chocolate 500 gm",
+            description:
+              "Dr. Morepen Weight Gainer in Irish Chocolate Flavor is a high-calorie supplement. It helps in gaining weight and enhancing muscle mass with a delicious taste.",
+            price: "₹343",
+          },
+          {
+            id: 8,
+            image:
+              "https://www.netmeds.com/images/product-v1/600x600/918492/gnc_pro_performance_weight_gainer_powder_dark_chocolate_flavour_3_kg_0_0.jpg",
+            title:
+              "GNC Pro Performance Weight Gainer Powder - Dark Chocolate Flavour 3 kg",
+            description:
+              "GNC Pro Performance Weight Gainer Powder in Dark Chocolate Flavor provides essential nutrients. It supports muscle growth and enhances overall strength effectively.",
+            price: "₹2050",
+          },
+        ];
+
+        // Find the product with the matching ID
+        const product = products.find((p) => p.id === parseInt(productId));
+
+        if (product) {
+          document.getElementById("product-image").src = product.image;
+          document.getElementById("product-title").innerText = product.title;
+          document.getElementById("product-description").innerText =
+            product.description;
+          document.getElementById("product-price").innerText = product.price;
+
+          // Quantity functionality
+          const quantityElement = document.getElementById("quantity");
+          const decreaseQuantityButton =
+            document.getElementById("decrease-quantity");
+          const increaseQuantityButton =
+            document.getElementById("increase-quantity");
+
+          let quantity = 1;
+
+          decreaseQuantityButton.addEventListener("click", function () {
+            if (quantity > 1) {
+              quantity--;
+              quantityElement.innerText = quantity;
+            }
+          });
+
+          increaseQuantityButton.addEventListener("click", function () {
+            quantity++;
+            quantityElement.innerText = quantity;
+          });
+
+          const addToCartButton = document.getElementById("add-to-cart");
+          addToCartButton.addEventListener("click", function () {
+            console.log("Product added to cart");
+          });
+        } else {
+          console.error("Product not found");
+        }
+      };
+    </script>
+  </body>
+</html>

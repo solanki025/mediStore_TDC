@@ -1,0 +1,58 @@
+const products = [
+          {
+            id: 1,
+            image:
+              "https://www.netmeds.com/images/product-v1/600x600/812850/muscleblaze_weight_gainer_chocolate_1_kg_0.jpg",
+            title: "MuscleBlaze Weight Gainer - Chocolate 1 kg",
+            price: "₹934",
+          },
+          {
+            id: 2,
+            image:
+              "https://www.netmeds.com/images/product-v1/600x600/923056/pro360_weight_gainer_adult_nutritional_powder_chocolate_flavour_500_gm_0_2.jpg",
+            title: "",
+            price: "",
+          },
+          {
+            id: 3,
+            image:
+              "https://www.netmeds.com/images/product-v1/600x600/1122003/muscleblaze_weight_gainer_powder_chocolate_pouch_1_kg_690898_0_0.jpg",
+            title: "MuscleBlaze Weight Gainer Powder - Chocolate (Pouch) 1 kg",
+            price: "",
+          },
+          {
+            id: 4,
+            image:
+              "",
+            title: "",
+            price: "",
+          },
+          {
+            id: 5,
+            image:
+              "",
+            title: "",
+            price: "",
+          },
+          {
+            id: 6,
+            image:
+              "",
+            title: "",
+            price: "",
+          },
+          {
+            id: 7,
+            image:
+              "",
+            title: "",
+            price: "",
+          },
+          {
+            id: 8,
+            image:
+              "",
+            title: "",
+            price: "",
+          },
+        ];
